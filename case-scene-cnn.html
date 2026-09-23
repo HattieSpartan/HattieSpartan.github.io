@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaching a model to tell look-alike scenes apart | Harriet Joseph</title>
+  <meta name="description" content="A CNN built from scratch for six-class scene classification: 81.3% test accuracy, improved from 76% through iteration, with a class-by-class diagnosis.">
+  <meta name="author" content="Harriet Joseph">
+  <link rel="canonical" href="https://hattiespartan.github.io/case-scene-cnn.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Teaching a model to tell look-alike scenes apart | Harriet Joseph">
+  <meta property="og:description" content="A CNN built from scratch for six-class scene classification: 81.3% test accuracy, improved from 76% through iteration, with a class-by-class diagnosis.">
+  <meta property="og:url" content="https://hattiespartan.github.io/case-scene-cnn.html">
+  <meta property="og:image" content="https://hattiespartan.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#5b3a8e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="index.html" aria-label="Harriet Joseph, home">
+        <span class="brand-mark" aria-hidden="true">HJ</span>
+        <span>Harriet Joseph</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="visually-hidden">Menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="work.html" aria-current="page">Work</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container">
+        <p class="breadcrumb"><a href="work.html">&larr; All work</a></p>
+        <span class="eyebrow">Computer vision</span>
+        <h1 style="max-width:18em">Teaching a model to tell look-alike scenes apart</h1>
+        <p class="lead">A convolutional neural network built from scratch to classify 17,000 images into six scene types, then diagnosed class by class.</p>
+        <div class="stat-row"><div class="stat"><b>81.3%</b><span>test accuracy (baseline model)</span></div><div class="stat"><b>76% &rarr; 81%</b><span>over successive iterations</span></div><div class="stat"><b>~17,000</b><span>images, six classes</span></div></div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="container case-layout">
+        <nav class="case-toc" aria-label="On this page"><ol><li><a href="#problem">Problem</a></li><li><a href="#approach">Approach</a></li><li><a href="#analysis">Analysis</a></li><li><a href="#result">Result &amp; insight</a></li><li><a href="#relevance">Why it matters</a></li><li><a href="#tools">Tools &amp; code</a></li></ol></nav>
+        <article class="case-body">
+            <section id="problem" aria-labelledby="problem-h">
+              <h2 id="problem-h"><span class="step">01 &middot; Problem</span>Some categories genuinely look alike</h2>
+              <p>Automatically tagging images is useful anywhere photos pile up faster than people can sort them. The hard part is not the easy classes; it&rsquo;s the ones that share colours, textures and shapes.</p>
+      <p>This project classifies about 17,000 photos into six scene types (buildings, forest, glacier, mountain, sea, street) using the public Intel Image Classification dataset. The goal was a compact model that separates the look-alikes while staying small enough to train on a free GPU.</p>
+      <figure><img src="img-cnn-predictions.jpg" width="793" height="833" alt="Grid of nine test images with the model's predicted and true labels, most correct." loading="lazy">
+      <figcaption>Sample test images with predicted and true labels.</figcaption></figure>
+            </section>
+            <section id="approach" aria-labelledby="approach-h">
+              <h2 id="approach-h"><span class="step">02 &middot; Approach</span>A compact network, improved step by step</h2>
+              <ul>
+        <li><strong>Data:</strong> 12,632 training, 1,402 validation and 3,000 test images at 150&times;150 pixels.</li>
+        <li><strong>Model:</strong> three convolution-and-pooling blocks (32, 64, 128 filters), global average pooling, a 128-unit dense layer with 50% dropout, about 110,000 parameters in total.</li>
+        <li><strong>Iteration:</strong> I refined the model over several versions, taking test accuracy from 76% to 81%.</li>
+        <li><strong>Experiment:</strong> retrained the same network with data augmentation (flips, rotation, zoom) to test whether it improved generalisation.</li>
+        <li><strong>Diagnosis:</strong> confusion matrix and per-class precision, recall and F1.</li>
+      </ul>
+            </section>
+            <section id="analysis" aria-labelledby="analysis-h">
+              <h2 id="analysis-h"><span class="step">03 &middot; Analysis</span>Where the model gets confused</h2>
+              <figure><img src="img-cnn-confusion.png" width="788" height="701" alt="Confusion matrix. Largest errors: 91 buildings predicted as street, 75 street predicted as buildings, 76 glacier predicted as mountain, 63 mountain predicted as glacier. Forest almost always correct." loading="lazy">
+      <figcaption>Confusion matrix on the 3,000 test images (augmented model).</figcaption></figure>
+      <ul>
+        <li><strong>Buildings &harr; street:</strong> 91 buildings labelled street, 75 streets labelled buildings.</li>
+        <li><strong>Glacier &harr; mountain:</strong> 76 glaciers labelled mountain, 63 mountains labelled glacier.</li>
+        <li><strong>Forest</strong> was almost always right (F1 0.95). Its texture is distinctive.</li>
+      </ul>
+            </section>
+            <section id="result" aria-labelledby="result-h">
+              <h2 id="result-h"><span class="step">04 &middot; Result &amp; insight</span>81% overall, and a clear map of what&rsquo;s left</h2>
+              <div class="table-wrap"><table>
+        <thead><tr><th>Model</th><th class="num">Test accuracy</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline CNN</td><td class="num"><strong>81.3%</strong></td></tr>
+          <tr><td>CNN + data augmentation</td><td class="num">77.8%</td></tr>
+        </tbody>
+      </table></div>
+      <p>Augmentation didn&rsquo;t help here. Training and validation accuracy were already close, so the baseline wasn&rsquo;t overfitting, and augmentation mainly slowed learning within ten epochs. The remaining errors are concentrated in two pairs of look-alike classes, which tells you where to focus next: transfer learning from a pretrained network, and training longer.</p>
+            </section>
+            <section id="relevance" aria-labelledby="relevance-h">
+              <h2 id="relevance-h"><span class="step">05 &middot; Why it matters</span>Why the diagnosis matters more than the headline</h2>
+              <p>An 81% figure alone doesn&rsquo;t tell a business whether the model is usable. The confusion matrix does: if confusing buildings with streets is harmless for the use case, the model may already be good enough; if it isn&rsquo;t, you know exactly which classes need more data or a stronger model.</p>
+            </section>
+            <section id="tools" aria-labelledby="tools-h">
+              <h2 id="tools-h"><span class="step">06 &middot; Tools &amp; code</span>Tools &amp; code</h2>
+              <ul class="tags" aria-label="Tools"><li>Python</li><li>TensorFlow/Keras</li><li>CNN</li><li>scikit-learn</li><li>Matplotlib</li><li>Google Colab</li></ul>
+            </section>
+          <div class="btn-row" style="margin-bottom:40px"><a class="btn btn-primary" href="https://github.com/HattieSpartan/scene-classification-cnn" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg> View on GitHub</a></div>
+          <div class="next-case">
+            <a href="work.html">&larr; All work</a>
+            <a href="case-qa-root-cause.html">Next: Where customer-support quality was breaking down &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div style="height:64px"></div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p style="margin:0">&copy; <span id="year">2026</span> Harriet Joseph &middot; Nairobi, Kenya</p>
+      <ul class="footer-links">
+        <li><a href="mailto:harriet.joseph35@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/harriet-joseph-5669b921b/" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/HattieSpartan" rel="noopener">GitHub</a></li>
+        <li><a href="Harriet_Joseph_CV.pdf">CV (PDF)</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="main.js" defer></script>
+</body>
+</html>

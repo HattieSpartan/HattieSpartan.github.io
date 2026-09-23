@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work | Harriet Joseph</title>
+  <meta name="description" content="Case studies by Harriet Joseph: customer-support quality analytics, sentiment analysis, a from-scratch spam classifier and computer vision.">
+  <meta name="author" content="Harriet Joseph">
+  <link rel="canonical" href="https://hattiespartan.github.io/work.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Work | Harriet Joseph">
+  <meta property="og:description" content="Case studies by Harriet Joseph: customer-support quality analytics, sentiment analysis, a from-scratch spam classifier and computer vision.">
+  <meta property="og:url" content="https://hattiespartan.github.io/work.html">
+  <meta property="og:image" content="https://hattiespartan.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#5b3a8e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="index.html" aria-label="Harriet Joseph, home">
+        <span class="brand-mark" aria-hidden="true">HJ</span>
+        <span>Harriet Joseph</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="visually-hidden">Menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="work.html" aria-current="page">Work</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container">
+        <span class="eyebrow">Work</span>
+        <h1>Case studies</h1>
+        <p class="lead">I&rsquo;ve chosen a few projects that show how I work rather than every notebook I&rsquo;ve written. Each case study covers the problem, the approach, what the data showed, and why it matters. The code is on <a href="https://github.com/HattieSpartan" rel="noopener">GitHub</a>.</p>
+      </div>
+    </div>
+
+    <section style="padding-top:8px" aria-labelledby="featured-h">
+      <div class="container">
+        <h2 id="featured-h" class="visually-hidden">Featured case studies</h2>
+        <div class="work-grid">
+          <article class="card card-feature reveal">
+            <div class="card-body">
+              <p class="card-kicker">Operational analytics &middot; CCI Kenya</p>
+              <h3><a href="case-qa-root-cause.html">Where customer-support quality was breaking down</a></h3>
+              <p>A root-cause analysis of ~7,500 QA audits across two support sites. Six defect types explained 70% of defects, and newer agents in Kenya dipped in their second and third months. The findings set coaching priorities.</p>
+              <span class="metric"><b>70%</b> of defects from 6 causes</span>
+              <ul class="tags" aria-label="Tools"><li>Python</li><li>pandas</li><li>Pareto analysis</li><li>Cohort analysis</li><li>Excel</li></ul>
+            </div>
+            <img src="img-qa-weekly.png" width="1350" height="630" alt="Line chart of weekly QA score: Rwanda declines through June to 86.5 percent while Kenya holds near 89 percent." loading="lazy">
+          </article>
+          
+          <article class="card reveal">
+            <p class="card-kicker">NLP &middot; Customer text</p>
+            <h3><a href="case-sentiment-lstm.html">Reading sentiment in 50,000 reviews</a></h3>
+            <p>An LSTM network that tags written feedback as positive or negative, served through a small app anyone can type a review into.</p>
+            <span class="metric"><b>88%</b> accuracy on unseen reviews</span>
+            <ul class="tags" aria-label="Tools"><li>TensorFlow/Keras</li><li>LSTM</li><li>Streamlit</li></ul>
+          </article>
+          
+          <article class="card reveal">
+            <p class="card-kicker">Statistical modelling</p>
+            <h3><a href="case-naive-bayes.html">A spam filter built from first principles</a></h3>
+            <p>Naive Bayes written by hand and benchmarked against scikit-learn, which exposed a bias towards false positives that I traced and explained.</p>
+            <span class="metric"><b>96.8%</b> accuracy &middot; 93% of spam caught</span>
+            <ul class="tags" aria-label="Tools"><li>Python</li><li>Probability</li><li>scikit-learn</li></ul>
+          </article>
+          
+          <article class="card reveal">
+            <p class="card-kicker">Computer vision</p>
+            <h3><a href="case-scene-cnn.html">Teaching a model to tell look-alike scenes apart</a></h3>
+            <p>A CNN built from scratch for six scene types, improved over several versions and diagnosed class by class to show exactly where it still fails.</p>
+            <span class="metric"><b>76% &rarr; 81%</b> through iteration</span>
+            <ul class="tags" aria-label="Tools"><li>TensorFlow/Keras</li><li>CNN</li><li>Diagnostics</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="more-h">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">More work</span>
+          <h2 id="more-h">Smaller projects and coursework</h2>
+          <p>Earlier or smaller pieces that round out the picture.</p>
+        </div>
+        <ul class="more-list">
+          <li class="reveal">
+            <h3>Customer churn prediction</h3>
+            <p>Compared logistic regression, decision tree, random forest and SVM classifiers to flag telecom customers likely to leave, and turned the key drivers into retention recommendations.</p>
+            <!-- PLACEHOLDER: add the best model's recall/F1 here once confirmed, and switch the link to the GitHub repo if you publish one. -->
+            <a class="more-link" href="https://www.datascienceportfol.io/harrietjoseph/projects/0" rel="noopener">Project write-up &rarr;</a>
+          </li>
+          <li class="reveal">
+            <h3>Bella, a wellness chatbot</h3>
+            <p>A conversational assistant built with Rasa that gives fitness and wellness support to desk-bound workers, using structured intents and entities refined through testing.</p>
+            <!-- PLACEHOLDER: replace this link with the Bella GitHub repo URL. -->
+            <a class="more-link" href="https://www.datascienceportfol.io/harrietjoseph/projects/1" rel="noopener">Project write-up &rarr;</a>
+          </li>
+          <li class="reveal">
+            <h3>Big-data pipelines (MSc coursework)</h3>
+            <p>Set up Hadoop, Spark and Flume on Linux and built a pipeline that moves raw tweets through an HDFS data lake and PySpark cleaning into a PostgreSQL warehouse (219,294 records). A second, team-built pipeline processed Netflix titles into partitioned Parquet.</p>
+            <!-- PLACEHOLDER: add a GitHub link once the pipeline code is published. -->
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p style="margin:0">&copy; <span id="year">2026</span> Harriet Joseph &middot; Nairobi, Kenya</p>
+      <ul class="footer-links">
+        <li><a href="mailto:harriet.joseph35@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/harriet-joseph-5669b921b/" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/HattieSpartan" rel="noopener">GitHub</a></li>
+        <li><a href="Harriet_Joseph_CV.pdf">CV (PDF)</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="main.js" defer></script>
+</body>
+</html>

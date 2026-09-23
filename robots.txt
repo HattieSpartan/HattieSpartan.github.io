@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hattiespartan.github.io/sitemap.xml

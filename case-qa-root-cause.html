@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where customer-support quality was breaking down | Harriet Joseph</title>
+  <meta name="description" content="Root-cause analysis of about 7,500 customer-support QA audits across two sites: trends, a mid-tenure performance dip, and the six defect types behind 70% of defects.">
+  <meta name="author" content="Harriet Joseph">
+  <link rel="canonical" href="https://hattiespartan.github.io/case-qa-root-cause.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Where customer-support quality was breaking down | Harriet Joseph">
+  <meta property="og:description" content="Root-cause analysis of about 7,500 customer-support QA audits across two sites: trends, a mid-tenure performance dip, and the six defect types behind 70% of defects.">
+  <meta property="og:url" content="https://hattiespartan.github.io/case-qa-root-cause.html">
+  <meta property="og:image" content="https://hattiespartan.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#5b3a8e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="index.html" aria-label="Harriet Joseph, home">
+        <span class="brand-mark" aria-hidden="true">HJ</span>
+        <span>Harriet Joseph</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="visually-hidden">Menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="work.html" aria-current="page">Work</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container">
+        <p class="breadcrumb"><a href="work.html">&larr; All work</a></p>
+        <span class="eyebrow">Operational analytics &middot; CCI Kenya</span>
+        <h1 style="max-width:18em">Where customer-support quality was breaking down</h1>
+        <p class="lead">A root-cause analysis of ~7,500 QA audits across two support sites, done as a Quality Analyst supporting our QA Team Lead.</p>
+        <div class="stat-row"><div class="stat"><b>~7,500</b><span>QA audits across Kenya and Rwanda</span></div><div class="stat"><b>70%</b><span>of Kenya&rsquo;s defects came from 6 defect types</span></div><div class="stat"><b>82.8%</b><span>average QA for Kenya agents at 60&ndash;90 days</span></div></div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="container case-layout">
+        <nav class="case-toc" aria-label="On this page"><ol><li><a href="#problem">Problem</a></li><li><a href="#approach">Approach</a></li><li><a href="#analysis">Analysis</a></li><li><a href="#result">Result &amp; insight</a></li><li><a href="#relevance">Why it matters</a></li><li><a href="#tools">Tools &amp; code</a></li></ol></nav>
+        <article class="case-body">
+            <section id="problem" aria-labelledby="problem-h">
+              <h2 id="problem-h"><span class="step">01 &middot; Problem</span>Quality was slipping, and averages alone couldn&rsquo;t say why</h2>
+              <p>I worked as a Quality Analyst on an email customer-support campaign run from two sites, Kenya and Rwanda, for an e-commerce client. Every week our QA team audited agents&rsquo; emails against a scorecard of seven parameters, from following the right workflow to actually resolving the customer&rsquo;s issue.</p>
+      <p>The site averages sat around 89&ndash;90% and looked healthy. But an average hides the question a team lead needs answered: <strong>where exactly is quality being lost, and who needs coaching on what?</strong> I supported our QA Team Lead in answering it.</p>
+            </section>
+            <section id="approach" aria-labelledby="approach-h">
+              <h2 id="approach-h"><span class="step">02 &middot; Approach</span>Break the average apart along the lines that matter operationally</h2>
+              <p>I combined the two sites&rsquo; audit sheets into one dataset of about 7,500 audits and cut it the way the operation is actually run:</p>
+      <ul>
+        <li><strong>Time:</strong> weekly and monthly trends by site, to separate a real decline from normal noise.</li>
+        <li><strong>Tenure:</strong> 30&ndash;60 days, 60&ndash;90 days and 90+ days, to see whether performance depends on how long an agent has been in the role.</li>
+        <li><strong>Contact reason:</strong> orders, payouts, account issues and so on, to find the hardest types of ticket.</li>
+        <li><strong>Defect tags:</strong> auditors record why points were lost. I parsed those multi-value tags and ran a Pareto analysis to see which few causes drive most defects.</li>
+        <li><strong>Agents:</strong> each site&rsquo;s bottom quartile, ranked by score and audit volume, so coaching could start where it would matter most.</li>
+      </ul>
+      <p>Agent names were replaced with anonymous IDs before any analysis. The client&rsquo;s data stays confidential; everything shown here is aggregated.</p>
+            </section>
+            <section id="analysis" aria-labelledby="analysis-h">
+              <h2 id="analysis-h"><span class="step">03 &middot; Analysis</span>What the data showed</h2>
+              <h3>Rwanda slipped through June while Kenya held steady</h3>
+      <figure><img src="img-qa-weekly.png" width="1350" height="630" alt="Line chart of weekly QA score by site. Both sites near 89 to 91 percent in May; Rwanda falls to about 86.5 percent by week 27 while Kenya stays near 89 percent." loading="lazy">
+      <figcaption>Weekly average QA score by site, weeks 18&ndash;27.</figcaption></figure>
+      <p>Rwanda went from 90.3% in May to 88.0% in June, ending week 27 at 86.5%. Kenya was flat at 89.3%. A sustained decline at one site points to something site-specific, such as a process change, a shift in volume or less coaching capacity, rather than random week-to-week variation.</p>
+
+      <h3>A mid-tenure dip in Kenya</h3>
+      <figure><img src="img-qa-tenure.png" width="1200" height="630" alt="Dot plot of QA score by tenure band. Kenya: 85.7 percent at 30 to 60 days, 82.8 percent at 60 to 90 days, 89.4 percent after 90 days. Rwanda: 92.1, 87.6 and 89.0 percent." loading="lazy">
+      <figcaption>Average QA score by tenure band, with the number of audits behind each point.</figcaption></figure>
+      <p>Kenya agents at 60&ndash;90 days averaged <strong>82.8%</strong>, below both newer agents (85.7%) and experienced agents (89.4%). A plausible reading: the close support of onboarding has ended, but full proficiency hasn&rsquo;t arrived. The 60&ndash;90 day group is small (71 audits), so I treated this as a signal to monitor, not a settled fact.</p>
+
+      <h3>Harder contact types differ by site</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Contact reason</th><th class="num">Kenya</th><th class="num">Rwanda</th></tr></thead>
+        <tbody>
+          <tr><td>Orders</td><td class="num">88.7% (831)</td><td class="num">88.8% (784)</td></tr>
+          <tr><td>Order management</td><td class="num">91.6% (500)</td><td class="num"><strong>86.8%</strong> (358)</td></tr>
+          <tr><td>Earnings &amp; payouts</td><td class="num">90.7% (206)</td><td class="num"><strong>85.6%</strong> (95)</td></tr>
+          <tr><td>Account / general</td><td class="num">89.4% (147)</td><td class="num">93.2% (149)</td></tr>
+        </tbody>
+      </table></div>
+      <p>On the highest-volume category the sites are level, but Rwanda trails by about five points on order-management and payout contacts. Those are process-heavy tickets where a knowledge refresher helps quickly.</p>
+
+      <h3>A few causes drive most defects</h3>
+      <figure><img src="img-qa-pareto.png" width="1350" height="660" alt="Bar chart of defect types in Kenya: incorrect contact reason 16.1 percent, prescribed macro not used 15.5, missed step in workflow 13.2, canned macros not customised 10.0, resolution missed or premature solve 8.6, wrong workflow used 6.6. Cumulative 70 percent." loading="lazy">
+      <figcaption>Share of 2,658 defect tags in Kenya. Six types account for 70%.</figcaption></figure>
+            </section>
+            <section id="result" aria-labelledby="result-h">
+              <h2 id="result-h"><span class="step">04 &middot; Result &amp; insight</span>Most lost quality was process and knowledge, which is fixable</h2>
+              <p>The six leading defects were about <strong>following process</strong> (wrong contact reason, missed or wrong workflow steps) and <strong>using templates well</strong> (skipping a required macro, or pasting one without tailoring it). Tone and effort were not the main story. That matters, because process gaps respond to clear SOPs, cheat sheets and calibration much faster than attitude problems respond to anything.</p>
+      <p>These findings fed directly into how we coached: which defects to target first, which agents to prioritise, and where job aids needed rewriting.</p>
+      <div class="callout"><span class="callout-title">A correction I made along the way</span>
+      <p>My first pass measured each parameter&rsquo;s &ldquo;failure rate&rdquo; by counting any non-empty defect cell. Every parameter came out above 50%, which couldn&rsquo;t be true alongside an 89% average score. Most cells actually held <code>no</code> or <code>--</code>, meaning the parameter <em>passed</em> or didn&rsquo;t apply. Counting only real defect tags fixed it. The lesson I kept: when a number contradicts another number you trust, check the definition before reporting it.</p></div>
+            </section>
+            <section id="relevance" aria-labelledby="relevance-h">
+              <h2 id="relevance-h"><span class="step">05 &middot; Why it matters</span>Why this matters beyond one campaign</h2>
+              <ul>
+        <li><strong>Coaching time is limited.</strong> Knowing that six causes explain 70% of defects tells a team lead where an hour of coaching pays off.</li>
+        <li><strong>Onboarding may end too early.</strong> If the 60&ndash;90 day dip holds up, extending structured support into that window is a cheap fix.</li>
+        <li><strong>Wrong contact reasons corrupt reporting.</strong> The single biggest defect also distorts the data the business uses to understand why customers get in touch.</li>
+        <li><strong>The method transfers.</strong> The same breakdown of trend, cohort, category and root cause works for any operation with audit or ticket data: banks, telcos, e-commerce, BPOs.</li>
+      </ul>
+            </section>
+            <section id="tools" aria-labelledby="tools-h">
+              <h2 id="tools-h"><span class="step">06 &middot; Tools &amp; code</span>Tools &amp; code</h2>
+              <p>Python (pandas) for combining, cleaning and aggregating; Matplotlib for charts; Excel for the working reports shared with the team.</p>
+      <ul class="tags" aria-label="Tools"><li>Python</li><li>pandas</li><li>Matplotlib</li><li>Excel</li><li>Pareto analysis</li><li>Cohort analysis</li></ul>
+      <p style="margin-top:16px">The repository contains the analysis code (with agent anonymisation built in) and the aggregate results behind the charts. The raw audit data is confidential and not included.</p>
+            </section>
+          <div class="btn-row" style="margin-bottom:40px"><a class="btn btn-primary" href="https://github.com/HattieSpartan/qa-root-cause-analysis" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg> View on GitHub</a></div>
+          <div class="next-case">
+            <a href="work.html">&larr; All work</a>
+            <a href="case-sentiment-lstm.html">Next: Reading sentiment in 50,000 reviews &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div style="height:64px"></div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p style="margin:0">&copy; <span id="year">2026</span> Harriet Joseph &middot; Nairobi, Kenya</p>
+      <ul class="footer-links">
+        <li><a href="mailto:harriet.joseph35@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/harriet-joseph-5669b921b/" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/HattieSpartan" rel="noopener">GitHub</a></li>
+        <li><a href="Harriet_Joseph_CV.pdf">CV (PDF)</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="main.js" defer></script>
+</body>
+</html>

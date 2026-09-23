@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research | Harriet Joseph</title>
+  <meta name="description" content="Harriet Joseph's MSc Data Science research: comparing classical actuarial and statistical learning methods for claims reserving in Kenyan short-tail general insurance.">
+  <meta name="author" content="Harriet Joseph">
+  <link rel="canonical" href="https://hattiespartan.github.io/research.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Research | Harriet Joseph">
+  <meta property="og:description" content="Harriet Joseph's MSc Data Science research: comparing classical actuarial and statistical learning methods for claims reserving in Kenyan short-tail general insurance.">
+  <meta property="og:url" content="https://hattiespartan.github.io/research.html">
+  <meta property="og:image" content="https://hattiespartan.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#5b3a8e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="index.html" aria-label="Harriet Joseph, home">
+        <span class="brand-mark" aria-hidden="true">HJ</span>
+        <span>Harriet Joseph</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="visually-hidden">Menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="research.html" aria-current="page">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="container narrow" style="margin-left:auto;margin-right:auto">
+        <span class="eyebrow">Research &middot; MSc Data Science, KCA University</span>
+        <h1 style="font-size:clamp(1.9rem,4vw,2.8rem)">A Comparative Evaluation of Classical Actuarial and Statistical Learning Methods for Claims Reserving in Kenyan Short-Tail General Insurance</h1>
+        <span class="status">In progress &middot; concept paper submitted September 2026 &middot; expected completion 2027</span>
+      </div>
+    </div>
+
+    <section style="padding-top:16px">
+      <div class="container narrow" style="margin-left:auto;margin-right:auto">
+        <h2>The problem</h2>
+        <p>When an insurer writes a policy, some of the claims it will pay have already happened but haven&rsquo;t been reported or fully settled yet. The insurer has to set money aside for them, and that <strong>claims reserve</strong> is usually one of the largest numbers on its balance sheet. Set it too low and the insurer looks healthier than it is; set it too high and capital sits idle.</p>
+        <p>Actuaries have long estimated reserves with classical methods such as the <strong>chain ladder</strong>, which projects how claims develop over time from past patterns. These methods are transparent and well understood, but they rest on assumptions that don&rsquo;t always hold. Statistical learning methods can pick up more complex patterns, but they are harder to explain, and in reserving an explanation matters as much as a number.</p>
+
+        <h2 style="margin-top:48px">The question</h2>
+        <p class="lead" style="font-size:1.12rem">For short-tail general insurance lines in Kenya, do statistical learning methods estimate outstanding claims more accurately than classical actuarial methods, and at what cost to transparency?</p>
+
+        <h2 style="margin-top:48px">Planned approach</h2>
+        <p class="muted">This is the direction set out in my concept paper. Details will change as the research develops.</p>
+        <ul>
+          <li><strong>Classical baselines:</strong> chain ladder, with Mack&rsquo;s method to estimate uncertainty around the reserve.</li>
+          <li><strong>Statistical learning:</strong> machine-learning models such as gradient-boosted trees, with explainability tools (e.g. SHAP) so the drivers of each estimate can be inspected.</li>
+          <li><strong>Fair comparison:</strong> out-of-time validation. Hold back the most recent diagonal of the claims triangle, fit each method on the rest, and compare how well each one predicts what actually happened.</li>
+          <li><strong>Data:</strong> Kenyan short-tail claims data, if access can be secured, for local relevance.</li>
+          <!-- PLACEHOLDER: confirm the final list of methods, the data source and your supervisor's name once agreed. -->
+        </ul>
+        <figure>
+          <svg viewBox="0 0 402 316" role="img" aria-labelledby="tri-t tri-d" style="width:100%;max-width:480px;height:auto"><title id="tri-t">Illustration: a claims development triangle</title><desc id="tri-d">Rows are accident years, columns are development periods. Known claims form a triangle. The most recent diagonal is held out to test each method on data it has not seen.</desc><text x="26" y="55" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY1</text><text x="51.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">1</text><rect x="35" y="35" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="69" y="35" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="103" y="35" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="137" y="35" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="171" y="35" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="205" y="35" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="239" y="35" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><text x="26" y="89" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY2</text><text x="85.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">2</text><rect x="35" y="69" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="69" y="69" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="103" y="69" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="137" y="69" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="171" y="69" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="205" y="69" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><rect x="239" y="69" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><text x="26" y="123" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY3</text><text x="119.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">3</text><rect x="35" y="103" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="69" y="103" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="103" y="103" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="137" y="103" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="171" y="103" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><rect x="205" y="103" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="239" y="103" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><text x="26" y="157" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY4</text><text x="153.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">4</text><rect x="35" y="137" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="69" y="137" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="103" y="137" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="137" y="137" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><rect x="171" y="137" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="205" y="137" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="239" y="137" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><text x="26" y="191" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY5</text><text x="187.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">5</text><rect x="35" y="171" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="69" y="171" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="103" y="171" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><rect x="137" y="171" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="171" y="171" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="205" y="171" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="239" y="171" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><text x="26" y="225" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY6</text><text x="221.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">6</text><rect x="35" y="205" width="32" height="32" rx="4" fill="#dcd0ee" stroke="#ffffff"/><rect x="69" y="205" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><rect x="103" y="205" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="137" y="205" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="171" y="205" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="205" y="205" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="239" y="205" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><text x="26" y="259" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">AY7</text><text x="255.0" y="24" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6b6775">7</text><rect x="35" y="239" width="32" height="32" rx="4" fill="#5b3a8e" stroke="#ffffff"/><rect x="69" y="239" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="103" y="239" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="137" y="239" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="171" y="239" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="205" y="239" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="239" y="239" width="32" height="32" rx="4" fill="#faf8f5" stroke="#e8e3ee"/><rect x="34" y="280" width="12" height="12" rx="3" fill="#dcd0ee" stroke="#d6cde3"/><text x="51" y="290" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="#45424d">Used to fit models</text><rect x="164.2" y="280" width="12" height="12" rx="3" fill="#5b3a8e" stroke="#d6cde3"/><text x="181.2" y="290" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="#45424d">Held-out diagonal</text><rect x="289.0" y="280" width="12" height="12" rx="3" fill="#faf8f5" stroke="#d6cde3"/><text x="306.0" y="290" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="#45424d">Future (to predict)</text></svg>
+          <figcaption>Illustration of out-of-time validation on a claims development triangle. Rows are accident years, columns are development periods. Not real data.</figcaption>
+        </figure>
+
+        <h2 style="margin-top:48px">Why I chose it</h2>
+        <p>It sits exactly where my two backgrounds meet. My actuarial degree taught me why reserving matters and how the classical methods work; my data science training gives me the tools to test whether newer methods genuinely do better, rather than assuming they do. Kenyan insurers also report under IFRS 17, which puts more weight on well-supported estimates of what is owed on past claims.</p>
+
+        <div class="callout">
+          <span class="callout-title">Status</span>
+          <p>No results yet. This page will be updated as the work progresses. If you work in reserving, insurance analytics or hold relevant claims data and would like to talk, I&rsquo;d be glad to hear from you: <a href="mailto:harriet.joseph35@gmail.com">harriet.joseph35@gmail.com</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p style="margin:0">&copy; <span id="year">2026</span> Harriet Joseph &middot; Nairobi, Kenya</p>
+      <ul class="footer-links">
+        <li><a href="mailto:harriet.joseph35@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/harriet-joseph-5669b921b/" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/HattieSpartan" rel="noopener">GitHub</a></li>
+        <li><a href="Harriet_Joseph_CV.pdf">CV (PDF)</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="main.js" defer></script>
+</body>
+</html>
